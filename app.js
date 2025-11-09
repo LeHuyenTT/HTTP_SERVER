@@ -12,7 +12,9 @@ DBConnection();
 require('colors');
 
 require("./Apps/models/NotiModel");
+require("./Apps/models/UserModel");
 const notiRoutes = require("./Apps/routes/NotiRoute");
+const userRoutes = require("./Apps/routes/UserRoute");
 
 const app = express();
 
@@ -25,6 +27,7 @@ app.use(express.json());
 const versionOne = (routeName) => `/api/v1/${routeName}`;
 
 app.use(versionOne("notifications"), notiRoutes);
+app.use(versionOne("users"), userRoutes);
 
 const PORT = process.env.PORT || 9001;
 
